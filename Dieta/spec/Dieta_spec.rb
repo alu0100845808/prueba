@@ -1,6 +1,6 @@
 require "spec_helper"
-require '/home/ubuntu/workspace/p7/Dieta/lib/dieta'
-require '/home/ubuntu/workspace/p7/Dieta/lib/LList'
+require '/home/ubuntu/workspace/p7/Dieta/lib/Dieta/dieta'
+require '/home/ubuntu/workspace/p7/Dieta/lib/Dieta/LList'
 
   describe Dieta do
     before :each do
