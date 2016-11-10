@@ -11,3 +11,4 @@ class Dieta
         @porcgrasas=porcgrasas
         @porchidratos=porchidratos
     end
+end
