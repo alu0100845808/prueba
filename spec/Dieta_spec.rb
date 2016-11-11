@@ -5,12 +5,21 @@ require "spec_helper"
         @d1 = Dietaa.new('ALMUERZO', 30,  ['Macarrones con salsa de tomate y queso parmesano', 'Escalope de ternera', 'Ensalada básica con zanahoria rallada','Mandarina', 'Pan de trigo integral'], ['1 1/2 cucharón', '1 bistec mediano', '1 guarnición', '1 grande', '1 rodaja'], [200, 100, 120, 180, 20], 785.9, 19, 34, 47)
         @d2 = Dietaa.new('ALMUERZO', 40,  ['Macarrones con salsa de tomate y queso parmesano', 'Escalope de ternera', 'Ensalada básica con zanahoria rallada','Mandarina', 'Pan de trigo integral'], ['1 1/2 cucharón', '1 bistec mediano', '1 guarnición', '1 grande', '1 rodaja'], [200, 100, 120, 180, 20], 785.9, 19, 34, 47)
         @d4 = LList.new(1)
-        @d5=LList.new(@d1)
-
+        @d5 = LList.new(@d1)
+        @lel = Node.new(1, 1, 1)
     end
     
+    describe "Node" do
+      it "Node exist" do
+        expect(@lel).to be_truthy
+      end
+    end
 
     describe "List_Functions" do
+      it "LList exist" do
+      expect(@d4).to be_truthy
+      end
+      
         it "popb numbers" do
         @d4.pushe(2)
         @d4.pushe(3)
@@ -78,6 +87,11 @@ require "spec_helper"
       it "Dieta nil" do
         expect(@d5.popb).to eq(@d1)
         expect(@d5.popb).to eq(nil)
+      end
+      it "Dieta actual & get_next" do
+        @d5.pushb(@d2)
+        expect(@d5.actual).to eq(@d2)
+        expect(@d5.shownext).to eq(@d1)
       end
       
       

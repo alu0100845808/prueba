@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Alejandro Carrillo"]
   spec.email         = ["alu0100845808@ull.edu.es"]
 
-  spec.summary       = %q{"Prueba de una lista"}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{"Prueba de una lista con numeros y menus"}
+  spec.homepage      = "http://www.ull.es"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
