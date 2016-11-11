@@ -1,6 +1,6 @@
+Node = Struct.new(:value, :next,:back)
 class LList
     attr_accessor :head, :tail
-    Node = Struct.new(:value, :next,:back)
     
     
     def initialize(perry)
@@ -57,7 +57,23 @@ class LList
             @tail=@tail.back
             return a.value
         end
-        
+    end
+    
+    
+    def shownext
+        if @head.next==nil
+            return nil
+        else
+            return @head.next.value
+        end
+    end
+    
+    def actual
+        if @head==nil
+            return nil
+        else
+            return @head.value
+        end
     end
     
 end
