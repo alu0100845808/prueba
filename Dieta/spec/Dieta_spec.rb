@@ -7,6 +7,8 @@ require "spec_helper"
         @d4 = LList.new(1)
         @d5 = LList.new(@d1)
         @lel = Node.new(1, 1, 1)
+        @EEUPM=Pgda.new('ALMUERZO', 40,  ['Macarrones con salsa de tomate y queso parmesano', 'Escalope de ternera', 'Ensalada básica con zanahoria rallada','Mandarina', 'Pan de trigo integral'], ['1 1/2 cucharón', '1 bistec mediano', '1 guarnición', '1 grande', '1 rodaja'], [200, 100, 120, 180, 20], 785.9, 19, 34, 47,'leche, huevos, pescado, carne y frutos secos')
+        @TDDHAC=Pgde.new('ALMUERZO', 40,  ['Macarrones con salsa de tomate y queso parmesano', 'Escalope de ternera', 'Ensalada básica con zanahoria rallada','Mandarina', 'Pan de trigo integral'], ['1 1/2 cucharón', '1 bistec mediano', '1 guarnición', '1 grande', '1 rodaja'], [200, 100, 120, 180, 20], 785.9, 19, 34, 47,'4 a 8 años')
     end
     
     describe "Node" do
@@ -16,10 +18,6 @@ require "spec_helper"
     end
 
     describe "List_Functions" do
-      it "LList exist" do
-      expect(@d4).to be_truthy
-      end
-      
       it "LList exist" do
       expect(@d4).to be_truthy
       end
@@ -98,6 +96,24 @@ require "spec_helper"
         expect(@d5.shownext).to eq(@d1)
       end
       
+      describe "Herencia" do
+      it "Por grupos de alimentos " do
+         expect(@EEUPM).to be_an_instance_of(Pgda)
+         expect(@EEUPM).is_a? Objet
+      end
+      
+      
+      it "Por grupos de edad " do
+         expect(@EEUPM).to be_an_instance_of(Pgde)
+         expect(@EEUPM).is_a? Objet
+      end
+      
+      
+      it "List herencia " do
+         expect(@EEUPM).to be_an_instance_of(Pgde)
+         expect(@EEUPM).is_a? Objet
+      end
+    end
       
       end
   end
