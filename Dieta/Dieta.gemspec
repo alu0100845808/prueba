@@ -5,7 +5,7 @@ require 'Dieta/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "Dieta"
-  spec.version       = Dieta::VERSION
+  spec.version       = Dietas::VERSION
   spec.authors       = ["Alejandro Carrillo"]
   spec.email         = ["alu0100845808@ull.edu.es"]
 
