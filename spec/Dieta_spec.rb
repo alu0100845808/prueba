@@ -2,11 +2,14 @@ require "spec_helper"
 
   describe Dieta do
     before :each do
-        @d1 = Dietaa.new('ALMUERZO', 30,  ['Macarrones con salsa de tomate y queso parmesano', 'Escalope de ternera', 'Ensalada básica con zanahoria rallada','Mandarina', 'Pan de trigo integral'], ['1 1/2 cucharón', '1 bistec mediano', '1 guarnición', '1 grande', '1 rodaja'], [200, 100, 120, 180, 20], 785.9, 19, 34, 47)
-        @d2 = Dietaa.new('ALMUERZO', 40,  ['Macarrones con salsa de tomate y queso parmesano', 'Escalope de ternera', 'Ensalada básica con zanahoria rallada','Mandarina', 'Pan de trigo integral'], ['1 1/2 cucharón', '1 bistec mediano', '1 guarnición', '1 grande', '1 rodaja'], [200, 100, 120, 180, 20], 785.9, 19, 34, 47)
+        @d1 = Dieta.new('ALMUERZO', 30,  ['Macarrones con salsa de tomate y queso parmesano', 'Escalope de ternera', 'Ensalada básica con zanahoria rallada','Mandarina', 'Pan de trigo integral'], ['1 1/2 cucharón', '1 bistec mediano', '1 guarnición', '1 grande', '1 rodaja'], [200, 100, 120, 180, 20], 785.9, 19, 34, 47)
+        @d2 = Dieta.new('ALMUERZO', 40,  ['Macarrones con salsa de tomate y queso parmesano', 'Escalope de ternera', 'Ensalada básica con zanahoria rallada','Mandarina', 'Pan de trigo integral'], ['1 1/2 cucharón', '1 bistec mediano', '1 guarnición', '1 grande', '1 rodaja'], [200, 100, 120, 180, 20], 785.9, 19, 34, 47)
         @d4 = LList.new(1)
         @d5 = LList.new(@d1)
         @lel = Node.new(1, 1, 1)
+        @EEUPM=Pgda.new('ALMUERZO', 40,  ['Macarrones con salsa de tomate y queso parmesano', 'Escalope de ternera', 'Ensalada básica con zanahoria rallada','Mandarina', 'Pan de trigo integral'], ['1 1/2 cucharón', '1 bistec mediano', '1 guarnición', '1 grande', '1 rodaja'], [200, 100, 120, 180, 20], 785.9, 19, 34, 47,'leche, huevos, pescado, carne y frutos secos')
+        @TDDHAC=Pgde.new('ALMUERZO', 40,  ['Macarrones con salsa de tomate y queso parmesano', 'Escalope de ternera', 'Ensalada básica con zanahoria rallada','Mandarina', 'Pan de trigo integral'], ['1 1/2 cucharón', '1 bistec mediano', '1 guarnición', '1 grande', '1 rodaja'], [200, 100, 120, 180, 20], 785.9, 19, 34, 47,'4 a 8 años')
+        @d6 = LList.new(@EEUPM)
     end
     
     describe "Node" do
@@ -94,6 +97,23 @@ require "spec_helper"
         expect(@d5.shownext).to eq(@d1)
       end
       
+      describe "Herencia" do
+      it "Por grupos de alimentos " do
+         expect(@EEUPM).to be_an_instance_of(Pgda)
+         expect(@EEUPM).is_a? Object
+      end
+      
+      
+      it "Por grupos de edad " do
+         expect(@TDDHAC).to be_an_instance_of(Pgde)
+         expect(@TDDHAC).is_a? Object
+      end
+      
+      
+      it "List herencia " do
+         expect(@d6.popb).to eq(@EEUPM)
+      end
+    end
       
       end
   end
