@@ -9,6 +9,7 @@ require "spec_helper"
         @lel = Node.new(1, 1, 1)
         @EEUPM=Pgda.new('ALMUERZO', 40,  ['Macarrones con salsa de tomate y queso parmesano', 'Escalope de ternera', 'Ensalada básica con zanahoria rallada','Mandarina', 'Pan de trigo integral'], ['1 1/2 cucharón', '1 bistec mediano', '1 guarnición', '1 grande', '1 rodaja'], [200, 100, 120, 180, 20], 785.9, 19, 34, 47,'leche, huevos, pescado, carne y frutos secos')
         @TDDHAC=Pgde.new('ALMUERZO', 40,  ['Macarrones con salsa de tomate y queso parmesano', 'Escalope de ternera', 'Ensalada básica con zanahoria rallada','Mandarina', 'Pan de trigo integral'], ['1 1/2 cucharón', '1 bistec mediano', '1 guarnición', '1 grande', '1 rodaja'], [200, 100, 120, 180, 20], 785.9, 19, 34, 47,'4 a 8 años')
+        @d6 = LList.new(@EEUPM)
     end
     
     describe "Node" do
@@ -110,8 +111,7 @@ require "spec_helper"
       
       
       it "List herencia " do
-         expect(@EEUPM).to be_an_instance_of(Pgde)
-         expect(@EEUPM).is_a? Objet
+         expect(@d6.popb).to eq(@EEUPM)
       end
     end
       
