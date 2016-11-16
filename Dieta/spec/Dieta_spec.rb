@@ -100,13 +100,13 @@ require "spec_helper"
       describe "Herencia" do
       it "Por grupos de alimentos " do
          expect(@EEUPM).to be_an_instance_of(Pgda)
-         expect(@EEUPM).is_a? Objet
+         expect(@EEUPM).is_a? Object
       end
       
       
       it "Por grupos de edad " do
-         expect(@EEUPM).to be_an_instance_of(Pgde)
-         expect(@EEUPM).is_a? Objet
+         expect(@TDDHAC).to be_an_instance_of(Pgde)
+         expect(@TDDHAC).is_a? Object
       end
       
       
