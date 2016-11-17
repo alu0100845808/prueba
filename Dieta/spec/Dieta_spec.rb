@@ -111,7 +111,13 @@ require "spec_helper"
       
       
       it "List herencia " do
-         expect(@d6.popb).to eq(@EEUPM)
+        @d6.pushb(@TDDHAC)
+        @d6.pushb(@EEUPM)
+        @d6.pushb(@TDDHAC)
+         expect(@d6.popb).to be_an_instance_of(Pgde)
+         expect(@d6.popb).to be_an_instance_of(Pgda)
+         expect(@d6.popb).is_a? Object
+         expect(@d6.popb).is_a? Object
       end
     end
       
