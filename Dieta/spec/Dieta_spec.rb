@@ -23,6 +23,7 @@ require "spec_helper"
       expect(@d4).to be_truthy
       end
       
+      
         it "popb numbers" do
         @d4.pushe(2)
         @d4.pushe(3)
@@ -98,6 +99,7 @@ require "spec_helper"
       end
       
       describe "Herencia" do
+        
       it "Por grupos de alimentos " do
          expect(@EEUPM).to be_an_instance_of(Pgda)
          expect(@EEUPM).is_a? Object
@@ -118,6 +120,25 @@ require "spec_helper"
          expect(@d6.popb).to be_an_instance_of(Pgda)
          expect(@d6.popb).is_a? Object
          expect(@d6.popb).is_a? Object
+      end
+    end
+    
+    
+    
+    describe "Modulo" do
+        
+      it ">" do
+        expect(@d1 > @d2).to be_truthy
+      end
+      
+      
+      it "<" do
+        expect(@d2 < @d1).to be_truthy
+      end
+      
+      
+      it "==" do
+        expect(@d1==@d1).to be_truthy
       end
     end
       
