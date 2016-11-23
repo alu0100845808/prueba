@@ -125,7 +125,7 @@ require "spec_helper"
     
     
     
-    describe "Modulo" do
+    describe "Modulo Comparable" do
         
       it ">" do
         expect(@d1 > @d2).to be_truthy
@@ -139,6 +139,24 @@ require "spec_helper"
       
       it "==" do
         expect(@d1==@d1).to be_truthy
+      end
+    end
+    
+    
+        describe "Modulo Enumerable" do
+        
+      it "All?" do
+        expect(@d4.all?).to eq(true)
+      end
+      
+      
+      it "Count" do
+        expect(@d4.count).to eq(1)
+      end
+      
+      
+      it "First" do
+        expect(@d4.first).to eq(1)
       end
     end
       
