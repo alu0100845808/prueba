@@ -1,5 +1,6 @@
 Node = Struct.new(:value, :next,:back)
 class LList
+    # Clase lista
     include Enumerable
     attr_accessor :head, :tail
     
