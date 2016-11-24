@@ -77,4 +77,13 @@ class LList
         end
     end
     
+    
+    def each()
+        a=@head
+        while a!=nil
+        yield a.value
+        a=a.next
+        end
+    end
+    
 end

@@ -140,23 +140,40 @@ require "spec_helper"
       it "==" do
         expect(@d1==@d1).to be_truthy
       end
+      
+      it "Between?" do
+        expect(@d1.between?(@d2,@d2)).to be_falsey
+      end
+      
+      it ">=" do
+        expect(@d1 >= @d2).to be_truthy
+      end
+      
+      it "<=" do
+        expect(@d2 <= @d1).to be_truthy
+      end
     end
     
     
         describe "Modulo Enumerable" do
         
       it "All?" do
-        expect(@d4.all?).to eq(true)
+        expect(@d5.all?).to eq(true)
       end
       
       
       it "Count" do
-        expect(@d4.count).to eq(1)
+        expect(@d5.count).to eq(1)
       end
       
       
       it "First" do
-        expect(@d4.first).to eq(1)
+        expect(@d5.first).to eq(@d1)
+      end
+    
+    it "First(n)" do
+      @d5.pushb(@d2)
+      expect(@d5.first(2)).to eq([@d2,@d1])
       end
     end
       
