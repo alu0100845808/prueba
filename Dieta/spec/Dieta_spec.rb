@@ -133,12 +133,14 @@ require "spec_helper"
       
       
       it "<" do
-        expect(@d2 < @d1).to be_truthy
+        expect(@d1 < @d2).to be_falsey
+        expect(@EEUPM<@EEUPM).to be_falsey
       end
       
       
       it "==" do
         expect(@d1==@d1).to be_truthy
+        expect(@EEUPM==@EEUPM).to be_truthy
       end
       
       it "Between?" do
@@ -161,6 +163,10 @@ require "spec_helper"
         expect(@d5.all?).to eq(true)
       end
       
+      it "Any?" do
+        @d5.popb
+        expect(@d5.any?).to eq(false)
+      end
       
       it "Count" do
         expect(@d5.count).to eq(1)
@@ -171,9 +177,16 @@ require "spec_helper"
         expect(@d5.first).to eq(@d1)
       end
     
-    it "First(n)" do
-      @d5.pushb(@d2)
-      expect(@d5.first(2)).to eq([@d2,@d1])
+      it "First(n)" do
+        @d5.pushb(@d2)
+        expect(@d5.first(2)).to eq([@d2,@d1])
+      end
+      
+      
+      it "Cycle" do
+        a=[]
+        @d4.cycle(2){|x| a<<x }
+        expect(a).to eq([1,1])
       end
     end
       
