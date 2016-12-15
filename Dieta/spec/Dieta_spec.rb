@@ -195,7 +195,7 @@ require "spec_helper"
       
         describe "Domain Specific Language" do
           it "Menu" do
-            menu = Menu.new("Etiqueta") do
+            @menu = Menu.new("Etiqueta") do
               titulo "Almuerzo"
               ingesta :min => 30, :max => 35
               plato :descripcion => "Macarrones con salsa de tomate y queso parmesano",
@@ -210,8 +210,8 @@ require "spec_helper"
               plato :descripcion => "Mandarina", :porcion => "1 grande", :gramos => 180
               plato :descripcion => "Pan de trigo integral", :porcion => "1 rodaja", :gramos => 20
               porcentajes :vct => 785.9, :proteinas => 19, :grasas => 34, :hidratos => 47
+            end
+          #puts menu;
           end
-          puts menu;
         end
-      end
   end
