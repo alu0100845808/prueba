@@ -10,7 +10,28 @@ require "spec_helper"
         @EEUPM=Pgda.new('ALMUERZO', 40,  ['Macarrones con salsa de tomate y queso parmesano', 'Escalope de ternera', 'Ensalada básica con zanahoria rallada','Mandarina', 'Pan de trigo integral'], ['1 1/2 cucharón', '1 bistec mediano', '1 guarnición', '1 grande', '1 rodaja'], [200, 100, 120, 180, 20], 785.9, 19, 34, 47,'leche, huevos, pescado, carne y frutos secos')
         @TDDHAC=Pgde.new('ALMUERZO', 40,  ['Macarrones con salsa de tomate y queso parmesano', 'Escalope de ternera', 'Ensalada básica con zanahoria rallada','Mandarina', 'Pan de trigo integral'], ['1 1/2 cucharón', '1 bistec mediano', '1 guarnición', '1 grande', '1 rodaja'], [200, 100, 120, 180, 20], 785.9, 19, 34, 47,'4 a 8 años')
         @d6 = LList.new(@EEUPM)
+        
     end
+    before :all do
+        @menu = Menu.new("Etiqueta") do
+          titulo :titulo => "Almuerzo"
+          ingesta :min => 30, :max => 35
+          plato :descripcion => "Macarrones con salsa de tomate y queso parmesano",
+          :porcion => "1 1/2 cucharón",
+          :gramos => 200
+          plato :descripcion => "Escalope de ternera",
+          :porcion => "1 bistec mediano",
+          :gramos => 100
+          plato :descripcion => "Ensalada básica con zanahoria rallada",
+          :porcion => "guarnición",
+          :gramos => 120
+          plato :descripcion => "Mandarina", :porcion => "1 grande", :gramos => 180
+          plato :descripcion => "Pan de trigo integral", :porcion => "1 rodaja", :gramos => 20
+          porcentajes :vct => 785.9, :proteinas => 19, :grasas => 34, :hidratos => 47
+        end
+        #puts @menu
+    end
+    
     
     describe "Node" do
       it "Node exist" do
@@ -195,23 +216,8 @@ require "spec_helper"
       
         describe "Domain Specific Language" do
           it "Menu" do
-            @menu = Menu.new("Etiqueta") do
-              titulo "Almuerzo"
-              ingesta :min => 30, :max => 35
-              plato :descripcion => "Macarrones con salsa de tomate y queso parmesano",
-              :porcion => "1 1/2 cucharón",
-              :gramos => 200
-              plato :descripcion => "Escalope de ternera",
-              :porcion => "1 bistec mediano",
-              :gramos => 100
-              plato :descripcion => "Ensalada básica con zanahoria rallada",
-              :porcion => "guarnición",
-              :gramos => 120
-              plato :descripcion => "Mandarina", :porcion => "1 grande", :gramos => 180
-              plato :descripcion => "Pan de trigo integral", :porcion => "1 rodaja", :gramos => 20
-              porcentajes :vct => 785.9, :proteinas => 19, :grasas => 34, :hidratos => 47
-            end
-          #puts menu;
+           expect(@menu.to_s).to eq("Almuerzo\n########\n\nEntre{30 35 }\nMacarrones con salsa de tomate y queso parmesano 1 1/2 cucharón 200 g \nEscalope de ternera 1 bistec mediano 100 g \nEnsalada básica con zanahoria rallada guarnición 120 g \nMandarina 1 grande 180 g \nPan de trigo integral 1 rodaja 20 g \n785.9 19 34 47 ")  
           end
         end
+
   end

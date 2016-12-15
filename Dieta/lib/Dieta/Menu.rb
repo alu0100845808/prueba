@@ -1,12 +1,12 @@
 class Menu
-    attr_accessor :etiqueta , :titulo , :ingesta , :platos, :porcentajes
+    attr_accessor :etiqueta , :title , :ingest , :platos, :porcentaje
     
     def initialize(etiqueta,&block)
         self.etiqueta=etiqueta
-        self.titulo = []
-        self.ingesta = []
+        self.title = ""
+        self.ingest = []
         self.platos = []
-        self.porcentajes = []
+        self.porcentaje = []
         if block_given?  
           if block.arity == 1
             yield self
@@ -18,27 +18,46 @@ class Menu
     
     
     def titulo(options = {})
-        titulo << "#{options[:titulo]}"
+        title << "#{options[:titulo]}"
     end
     
     def ingesta(options = {})
-        ingesta << "#{options[:min]}"
-        ingesta << "#{options[:max]}"
+        ingest << "#{options[:min]}"
+        ingest << "#{options[:max]}"
     end
     
-    def platos(options = {})
-        plato = []
-        plato << "#{options[:descripcion]}"
-        plato << "#{options[:porcion]}"
-        plato << "#{options[:gramos]}"
-        platos << plato
+    def plato(options = {})
+        plat = []
+        plat << "#{options[:descripcion]}"
+        plat << "#{options[:porcion]}"
+        plat << "#{options[:gramos]}"
+        platos << plat
     end
     def porcentajes(options = {})
-        porcentajes << "#{options[:vct]}"
-        porcentajes << "#{options[:proteinas]}"
-        porcentajes << "#{options[:grasas]}"
-        porcentajes << "#{options[:hidratos]}"
+        porcentaje << "#{options[:vct]}"
+        porcentaje << "#{options[:proteinas]}"
+        porcentaje << "#{options[:grasas]}"
+        porcentaje << "#{options[:hidratos]}"
     end
     
+    def to_s
+        output = "#{title}\n"
+        output << "#{'#' * title.size}\n\n"
+        output << "Entre{"
+        ingest.each do |p|
+            output << p + " "
+         end
+         output << "}\n"
+         platos.each do |p|
+            p.each do |x|
+                output << x + " "
+            end
+            output << "g \n"
+         end
+         porcentaje.each do |p|
+            output << p + " "
+         end
+        output
+    end
     
 end
