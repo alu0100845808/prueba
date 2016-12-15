@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Alejandro Carrillo"]
   spec.email         = ["alu0100845808@ull.edu.es"]
 
-  spec.summary       = %q{"Prueba de una lista con numeros y menus"}
+  spec.summary       = %q{"Modulos"}
   spec.homepage      = "http://www.ull.es"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -34,4 +34,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "guard"
   spec.add_development_dependency "guard-rspec"
   spec.add_development_dependency "guard-bundler"
+  spec.metadata["yard.run"] = "yri" 
 end

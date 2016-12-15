@@ -1,5 +1,7 @@
 Node = Struct.new(:value, :next,:back)
 class LList
+    # Clase lista
+    include Enumerable
     attr_accessor :head, :tail
     
     
@@ -73,6 +75,15 @@ class LList
             return nil
         else
             return @head.value
+        end
+    end
+    
+    
+    def each()
+        a=@head
+        while a!=nil
+        yield a.value
+        a=a.next
         end
     end
     
