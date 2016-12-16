@@ -29,7 +29,40 @@ require "spec_helper"
           plato :descripcion => "Pan de trigo integral", :porcion => "1 rodaja", :gramos => 20
           porcentajes :vct => 785.9, :proteinas => 19, :grasas => 34, :hidratos => 47
         end
-        #puts @menu
+        @Desayuno = Menu.new("Etiqueta") do
+          titulo :titulo => "Desayuno"
+          ingesta :min => 30, :max => 35
+          plato :descripcion => "Leche y galletas",
+          :porcion => "1 1/2 cucharón",
+          :gramos => 200
+          plato :descripcion => "Mandarina", :porcion => "1 grande", :gramos => 180
+          plato :descripcion => "Pan de trigo integral", :porcion => "1 rodaja", :gramos => 20
+          porcentajes :vct => 785.9, :proteinas => 19, :grasas => 34, :hidratos => 47
+        end
+        @Cena = Menu.new("Etiqueta") do
+          titulo :titulo => "Cena"
+          ingesta :min => 30, :max => 35
+          plato :descripcion => "Spagettis con salsa de tomate ",
+          :porcion => "1 1/2 cucharón",
+          :gramos => 200
+          plato :descripcion => "Escalope de cerdo",
+          :porcion => "1 bistec pequeño",
+          :gramos => 100
+          plato :descripcion => "Ensalada básica",
+          :porcion => "guarnición",
+          :gramos => 120
+          plato :descripcion => "Mandarina", :porcion => "1 pequeña", :gramos => 80
+          plato :descripcion => "Pan de trigo integral", :porcion => "1 rodaja", :gramos => 20
+          porcentajes :vct => 785.9, :proteinas => 19, :grasas => 34, :hidratos => 47
+        end
+        @Lunes = LList.new(@Desayuno)
+        @Lunes.pushe(@menu)
+        @Lunes.pushe(@Cena)
+        @Martes = LList.new(@Desayuno)
+        @Martes.pushe(@Cena)
+        @Martes.pushe(@menu)
+        @Semana = LList.new(@Lunes)
+        @Semana.pushe(@Martes)
     end
     
     
@@ -215,9 +248,30 @@ require "spec_helper"
       
       
         describe "Domain Specific Language" do
-          it "Menu" do
+          it "Menu to_s" do
            expect(@menu.to_s).to eq("Almuerzo\n########\n\nEntre{30 35 }\nMacarrones con salsa de tomate y queso parmesano 1 1/2 cucharón 200 g \nEscalope de ternera 1 bistec mediano 100 g \nEnsalada básica con zanahoria rallada guarnición 120 g \nMandarina 1 grande 180 g \nPan de trigo integral 1 rodaja 20 g \n785.9 19 34 47 ")  
           end
+          it "Menu title" do
+            expect(@menu.title).to eq("Almuerzo")
+          end
+          it "Menu ingesta" do
+            expect(@menu.ingesta[0]).to eq("30")
+            expect(@menu.ingesta[1]).to eq("35")
+          end
+          
+        end
+        describe "Lista Semanal y diaria" do
+          it "Lista diaria" do
+            expect(@Lunes.popb).to eq(@Desayuno)
+            expect(@Lunes.popb).to eq(@menu)
+            expect(@Lunes.popb).to eq(@Cena)
+            expect(@Lunes.popb).to eq(nil)
+          end
+          it "Lista semanal" do
+            expect(@Semana.popb).to eq(@Lunes)
+            expect(@Semana.popb).to eq(@Martes)
+          end
+          
         end
 
   end
