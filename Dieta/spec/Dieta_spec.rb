@@ -215,9 +215,16 @@ require "spec_helper"
       
       
         describe "Domain Specific Language" do
-          it "Menu" do
+          it "Menu to_s" do
            expect(@menu.to_s).to eq("Almuerzo\n########\n\nEntre{30 35 }\nMacarrones con salsa de tomate y queso parmesano 1 1/2 cucharón 200 g \nEscalope de ternera 1 bistec mediano 100 g \nEnsalada básica con zanahoria rallada guarnición 120 g \nMandarina 1 grande 180 g \nPan de trigo integral 1 rodaja 20 g \n785.9 19 34 47 ")  
           end
+          it "Menu title" do
+            expect(@menu.title).to eq("Almuerzo")
+          end
+          it "Menu ingesta" do
+            expect(@menu.ingesta[0]).to eq("30")
+          end
+          
         end
 
   end
