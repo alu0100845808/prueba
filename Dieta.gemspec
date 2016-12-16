@@ -4,13 +4,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'Dieta/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "Dieta0100845808"
+  spec.name          = "Dieta0100845808pr"
   spec.version       = Dietas::VERSION
   spec.authors       = ["Alejandro Carrillo"]
   spec.email         = ["alu0100845808@ull.edu.es"]
 
   spec.summary       = %q{"Modulos"}
-  spec.homepage      = "http://www.ull.es"
+  spec.homepage      = "https://rubygems.org"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
