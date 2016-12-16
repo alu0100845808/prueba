@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["alu0100845808@ull.edu.es"]
 
   spec.summary       = %q{"Modulos"}
-  spec.homepage      = "http://www.ull.es"
+  spec.homepage      = "www.rubygems.org"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
