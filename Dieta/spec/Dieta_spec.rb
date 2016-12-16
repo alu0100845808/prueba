@@ -262,13 +262,14 @@ require "spec_helper"
         end
         describe "Lista Semanal y diaria" do
           it "Lista diaria" do
-        expect(@Lunes.popb).to eq(@Desayuno)
-        expect(@Lunes.popb).to eq(@menu)
-        expect(@Lunes.popb).to eq(@Cena)
-        expect(@Lunes.popb).to eq(nil)
+            expect(@Lunes.popb).to eq(@Desayuno)
+            expect(@Lunes.popb).to eq(@menu)
+            expect(@Lunes.popb).to eq(@Cena)
+            expect(@Lunes.popb).to eq(nil)
           end
           it "Lista semanal" do
-            
+            expect(@Semana.popb).to eq(@Lunes)
+            expect(@Semana.popb).to eq(@Martes)
           end
           
         end
