@@ -223,6 +223,7 @@ require "spec_helper"
           end
           it "Menu ingesta" do
             expect(@menu.ingesta[0]).to eq("30")
+            expect(@menu.ingesta[1]).to eq("35")
           end
           
         end
